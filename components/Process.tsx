@@ -14,7 +14,7 @@ export default function Process({ lang }: ProcessProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
       

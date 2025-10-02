@@ -66,6 +66,9 @@ export default function Home() {
 
         <section id="portfolio" className="snap-section">
           <Portfolio lang={lang} onVideoClick={openVideo} />
+        </section>
+
+        <section className="snap-section">
           <SocialHighlights lang={lang} />
         </section>
 

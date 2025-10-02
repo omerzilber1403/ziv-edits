@@ -34,7 +34,7 @@ export default function SocialHighlights({ lang }: SocialHighlightsProps) {
   ];
 
   return (
-    <div className="relative px-4 py-32 md:py-40">
+    <div className="relative px-4 py-40 md:py-56 pb-56 md:pb-72">
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}

@@ -20,7 +20,7 @@ export default function WhyWorkWithMe({ lang }: WhyWorkWithMeProps) {
   ];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <div className="relative min-h-[100vh] flex items-center justify-center px-4 py-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
       
