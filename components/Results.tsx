@@ -12,7 +12,7 @@ interface ResultsProps {
 export default function Results({ lang }: ResultsProps) {
   const t = getTranslations(lang);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-200px', amount: 0.4 });
+  const isInView = useInView(ref, { once: true, margin: '-50px', amount: 0.15 });
 
   const items = [
     t.results.item1,
@@ -34,9 +34,9 @@ export default function Results({ lang }: ResultsProps) {
       >
         {/* Header */}
         <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
           className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-12 text-center text-neon neon-text-glow"
         >
           {t.results.header}
@@ -47,9 +47,9 @@ export default function Results({ lang }: ResultsProps) {
           {items.map((item, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, x: lang === 'he' ? 50 : -50 }}
-              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: lang === 'he' ? 50 : -50 }}
-              transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.2 + index * 0.15, ease: 'easeOut' }}
               className="glass rounded-2xl p-6 flex items-start gap-4 hover:border-neon/50 transition-all duration-300"
             >
               <CheckCircle size={28} className="text-neon flex-shrink-0 mt-1" />
@@ -60,9 +60,9 @@ export default function Results({ lang }: ResultsProps) {
 
         {/* Quote */}
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-          transition={{ duration: 0.6, delay: 0.7 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.65, ease: 'easeOut' }}
           className="glass rounded-3xl p-8 md:p-12 relative"
         >
           <Quote size={48} className="text-neon-2 opacity-30 absolute top-6 left-6" aria-hidden="true" />

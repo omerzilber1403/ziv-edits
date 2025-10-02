@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { Mail, Instagram, Linkedin } from 'lucide-react';
+import { Mail, Instagram, Linkedin, MessageCircle } from 'lucide-react';
 import { getTranslations, Lang } from '@/lib/i18n';
 
 interface ContactProps {
@@ -16,6 +16,7 @@ export default function Contact({ lang }: ContactProps) {
 
   // Replace with actual links
   const email = 'ziv8800@gmail.com';
+  const whatsappUrl = 'https://wa.me/972507439484';
   const instagramUrl = 'https://instagram.com/ziv.editor';
   const linkedinUrl = 'https://linkedin.com/in/ziv-editor';
 
@@ -42,7 +43,7 @@ export default function Contact({ lang }: ContactProps) {
         </motion.h2>
 
 
-        {/* Email button */}
+        {/* WhatsApp button */}
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -50,13 +51,15 @@ export default function Contact({ lang }: ContactProps) {
           className="mb-12"
         >
           <motion.a
-            href={`mailto:${email}`}
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-neon text-bg font-bold text-lg hover:bg-neon-2 transition-all duration-300 neon-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
           >
-            <Mail size={24} />
-            {t.contact.button}
+            <MessageCircle size={24} />
+            {lang === 'he' ? 'שלחו לי הודעה בוואטסאפ' : 'Message me on WhatsApp'}
           </motion.a>
         </motion.div>
 

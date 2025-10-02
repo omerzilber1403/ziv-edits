@@ -11,7 +11,7 @@ interface AboutProps {
 export default function About({ lang }: AboutProps) {
   const t = getTranslations(lang);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-50px', amount: 0.2 });
 
   return (
     <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
@@ -27,9 +27,9 @@ export default function About({ lang }: AboutProps) {
       >
         {/* Header */}
         <motion.h2
-          initial={{ opacity: 0, x: lang === 'he' ? 50 : -50 }}
-          animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: lang === 'he' ? 50 : -50 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
           className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 text-neon neon-text-glow"
         >
           {t.about.header}
@@ -39,9 +39,9 @@ export default function About({ lang }: AboutProps) {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* First section */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
             className="glass rounded-3xl p-6 md:p-10"
           >
             <div className="text-base md:text-lg lg:text-xl leading-relaxed text-fg space-y-4">
@@ -53,9 +53,9 @@ export default function About({ lang }: AboutProps) {
 
           {/* Second section */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.6, delay: 0.5 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+            transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
             className="glass rounded-3xl p-6 md:p-10"
           >
             <div className="text-base md:text-lg lg:text-xl leading-relaxed text-fg space-y-4">

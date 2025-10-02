@@ -12,7 +12,7 @@ interface SocialHighlightsProps {
 export default function SocialHighlights({ lang }: SocialHighlightsProps) {
   const t = getTranslations(lang);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-200px', amount: 0.3 });
+  const isInView = useInView(ref, { once: true, margin: '-50px', amount: 0.1 });
 
   // Real social media links with view counts
   const highlights = [
@@ -34,7 +34,7 @@ export default function SocialHighlights({ lang }: SocialHighlightsProps) {
   ];
 
   return (
-    <div className="relative px-4 py-20">
+    <div className="relative px-4 py-32 md:py-40">
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}
@@ -44,9 +44,9 @@ export default function SocialHighlights({ lang }: SocialHighlightsProps) {
       >
         {/* Header */}
         <motion.h3
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
           className="text-3xl md:text-4xl lg:text-5xl font-display font-light mb-10 text-center text-neon-2"
           style={{ textShadow: '0 0 20px rgba(187, 102, 255, 0.5), 0 0 40px rgba(187, 102, 255, 0.3)' }}
         >
@@ -61,9 +61,9 @@ export default function SocialHighlights({ lang }: SocialHighlightsProps) {
               href={item.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-              transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.8, delay: 0.2 + index * 0.15, ease: 'easeOut' }}
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.98 }}
               className="group glass rounded-2xl p-8 hover:border-neon-2/50 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon-2 relative overflow-hidden"
