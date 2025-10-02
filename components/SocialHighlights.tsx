@@ -12,7 +12,7 @@ interface SocialHighlightsProps {
 export default function SocialHighlights({ lang }: SocialHighlightsProps) {
   const t = getTranslations(lang);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-200px', amount: 0.3 });
 
   // Real social media links with view counts
   const highlights = [

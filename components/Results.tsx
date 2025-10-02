@@ -12,7 +12,7 @@ interface ResultsProps {
 export default function Results({ lang }: ResultsProps) {
   const t = getTranslations(lang);
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: '-100px' });
+  const isInView = useInView(ref, { once: true, margin: '-200px', amount: 0.4 });
 
   const items = [
     t.results.item1,

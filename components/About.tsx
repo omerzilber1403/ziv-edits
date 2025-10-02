@@ -35,28 +35,45 @@ export default function About({ lang }: AboutProps) {
           {t.about.header}
         </motion.h2>
 
-        {/* Body text */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass rounded-3xl p-8 md:p-12"
-        >
-          <div className="text-lg md:text-xl lg:text-2xl leading-relaxed text-fg space-y-6">
-            {t.about.body.split('\n\n').map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
-          </div>
-
-          {/* Decorative line */}
+        {/* Body text - Two sections for mobile */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* First section */}
           <motion.div
-            initial={{ scaleX: 0 }}
-            animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-8 h-1 bg-gradient-to-r from-neon to-neon-2 rounded-full"
-            style={{ transformOrigin: lang === 'he' ? 'right' : 'left' }}
-          />
-        </motion.div>
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="glass rounded-3xl p-6 md:p-10"
+          >
+            <div className="text-base md:text-lg lg:text-xl leading-relaxed text-fg space-y-4">
+              {t.about.body.split('\n\n').slice(0, 2).map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Second section */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="glass rounded-3xl p-6 md:p-10"
+          >
+            <div className="text-base md:text-lg lg:text-xl leading-relaxed text-fg space-y-4">
+              {t.about.body.split('\n\n').slice(2).map((paragraph, index) => (
+                <p key={index}>{paragraph}</p>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        {/* Decorative line */}
+        <motion.div
+          initial={{ scaleX: 0 }}
+          animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
+          transition={{ duration: 0.8, delay: 0.7 }}
+          className="mt-8 h-1 bg-gradient-to-r from-neon to-neon-2 rounded-full"
+          style={{ transformOrigin: lang === 'he' ? 'right' : 'left' }}
+        />
 
         {/* Floating accent */}
         <motion.div
