@@ -22,7 +22,7 @@ export default function Portfolio({ lang, onVideoClick }: PortfolioProps) {
   const visibleVideos = showAll ? videos : videos.slice(0, 4);
 
   return (
-    <div className="relative min-h-screen flex flex-col justify-center px-4 py-20 overflow-hidden">
+    <div className="relative min-h-screen flex flex-col justify-center px-4 py-20 pb-40 md:pb-20 overflow-hidden">
       {/* Background */}
       <div className="absolute inset-0 grid-bg opacity-20" aria-hidden="true" />
 
@@ -116,6 +116,9 @@ export default function Portfolio({ lang, onVideoClick }: PortfolioProps) {
               {lang === 'he' ? 'צפה עוד' : 'Show More'}
               <ChevronDown size={24} />
             </motion.button>
+            
+            {/* Empty spacer for mobile to give time to see the button */}
+            <div className="h-48 md:h-0" aria-hidden="true" />
           </motion.div>
         )}
       </div>

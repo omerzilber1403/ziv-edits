@@ -21,7 +21,7 @@ export default function FAQ({ lang }: FAQProps) {
   ];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 pb-40 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 pb-56 md:pb-40 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-bg opacity-20" aria-hidden="true" />
       

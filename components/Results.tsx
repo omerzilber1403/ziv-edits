@@ -21,7 +21,7 @@ export default function Results({ lang }: ResultsProps) {
   ];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 pb-40 md:pb-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-bg opacity-20" aria-hidden="true" />
       
@@ -75,6 +75,9 @@ export default function Results({ lang }: ResultsProps) {
             </p>
           </div>
         </motion.div>
+
+        {/* Empty spacer for mobile */}
+        <div className="h-32 md:h-0" aria-hidden="true" />
       </motion.div>
     </div>
   );

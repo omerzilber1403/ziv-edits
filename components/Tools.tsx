@@ -67,7 +67,7 @@ export default function Tools({ lang }: ToolsProps) {
   ];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 overflow-hidden">
+    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 pb-48 md:pb-20 overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
       
@@ -88,8 +88,8 @@ export default function Tools({ lang }: ToolsProps) {
           {t.tools.header}
         </motion.h2>
 
-        {/* Tools grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Tools grid - Cards for desktop, list for mobile */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {tools.map((tool, index) => (
             <motion.div
               key={index}
@@ -113,6 +113,34 @@ export default function Tools({ lang }: ToolsProps) {
             </motion.div>
           ))}
         </div>
+
+        {/* Mobile: Compact cards */}
+        <div className="md:hidden space-y-3">
+          {tools.map((tool, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, x: lang === 'he' ? 20 : -20 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: lang === 'he' ? 20 : -20 }}
+              transition={{ duration: 0.6, delay: 0.2 + index * 0.08, ease: 'easeOut' }}
+              className="glass rounded-2xl p-4 flex items-center gap-4"
+            >
+              <div className="w-12 h-12 rounded-full bg-neon-2/20 flex items-center justify-center flex-shrink-0">
+                <tool.icon size={24} className="text-neon-2" />
+              </div>
+              <div className="flex-1 text-right" dir={lang === 'he' ? 'rtl' : 'ltr'}>
+                <h3 className="text-base font-bold text-fg">
+                  {lang === 'he' ? tool.nameHe : tool.nameEn}
+                </h3>
+                <p className="text-sm text-fg-muted">
+                  {lang === 'he' ? tool.descHe : tool.descEn}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* Empty spacer for mobile */}
+        <div className="h-32 md:h-0" aria-hidden="true" />
       </motion.div>
 
       {/* Decorative element */}
