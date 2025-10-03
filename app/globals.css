@@ -70,8 +70,6 @@ body {
 /* Smooth scroll snap for sections */
 .snap-container {
   scroll-snap-type: y mandatory;
-  overflow-y: scroll;
-  height: 100vh;
 }
 
 .snap-section {
