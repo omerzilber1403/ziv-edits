@@ -56,7 +56,6 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-snap-type: y proximity;
   overflow-x: hidden;
 }
 
@@ -69,9 +68,13 @@ body {
 }
 
 /* Smooth scroll snap for sections */
+.snap-container {
+  scroll-snap-type: y mandatory;
+}
+
 .snap-section {
   scroll-snap-align: start;
-  scroll-snap-stop: normal;
+  scroll-snap-stop: always;
   min-height: 100vh;
 }
 
