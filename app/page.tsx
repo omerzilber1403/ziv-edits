@@ -91,19 +91,9 @@ export default function Home() {
         <section id="contact" className="snap-section">
           <Contact lang={lang} />
         </section>
-      </div>
 
-      {/* Video modal */}
-      {selectedVideoId && (
-        <VideoModal
-          videoId={selectedVideoId}
-          lang={lang}
-          onClose={closeVideo}
-        />
-      )}
-
-      {/* Footer */}
-      <footer className="relative z-20 py-8 pb-24 md:pb-8 px-4 border-t border-neon/20 glass">
+        {/* Footer */}
+        <footer className="relative z-20 py-8 pb-24 md:pb-8 px-4 border-t border-neon/20 glass">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Left side - Logo/Brand */}
@@ -146,6 +136,16 @@ export default function Home() {
         <div className="absolute top-0 left-10 w-32 h-32 rounded-full bg-neon/10 blur-3xl pointer-events-none" aria-hidden="true" />
         <div className="absolute bottom-0 right-10 w-32 h-32 rounded-full bg-neon-2/10 blur-3xl pointer-events-none" aria-hidden="true" />
       </footer>
+      </div>
+
+      {/* Video modal */}
+      {selectedVideoId && (
+        <VideoModal
+          videoId={selectedVideoId}
+          lang={lang}
+          onClose={closeVideo}
+        />
+      )}
     </main>
   );
 }
