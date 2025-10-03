@@ -50,48 +50,45 @@ export default function Home() {
     <main className="relative">
       <Navbar lang={lang} onToggleLang={toggleLanguage} />
       
-      {/* Scroll snap container */}
-      <div className="snap-container">
-        <section id="hero" className="snap-section">
-          <Hero lang={lang} />
-        </section>
+      <section id="hero" className="snap-section">
+        <Hero lang={lang} />
+      </section>
 
-        <section id="about" className="snap-section">
-          <About lang={lang} />
-        </section>
+      <section id="about" className="snap-section">
+        <About lang={lang} />
+      </section>
 
-        <section className="snap-section">
-          <WhyWorkWithMe lang={lang} />
-        </section>
+      <section className="snap-section">
+        <WhyWorkWithMe lang={lang} />
+      </section>
 
-        <section id="portfolio" className="snap-section">
-          <Portfolio lang={lang} onVideoClick={openVideo} />
-        </section>
+      <section id="portfolio" className="snap-section">
+        <Portfolio lang={lang} onVideoClick={openVideo} />
+      </section>
 
-        <section className="snap-section">
-          <SocialHighlights lang={lang} />
-        </section>
+      <section className="snap-section">
+        <SocialHighlights lang={lang} />
+      </section>
 
-        <section className="snap-section">
-          <Process lang={lang} />
-        </section>
+      <section className="snap-section">
+        <Process lang={lang} />
+      </section>
 
-        <section className="snap-section">
-          <Results lang={lang} />
-        </section>
+      <section className="snap-section">
+        <Results lang={lang} />
+      </section>
 
-        <section className="snap-section">
-          <Tools lang={lang} />
-        </section>
+      <section className="snap-section">
+        <Tools lang={lang} />
+      </section>
 
-        <section className="snap-section">
-          <FAQ lang={lang} />
-        </section>
+      <section className="snap-section">
+        <FAQ lang={lang} />
+      </section>
 
-        <section id="contact" className="snap-section">
-          <Contact lang={lang} />
-        </section>
-      </div>
+      <section id="contact" className="snap-section">
+        <Contact lang={lang} />
+      </section>
 
       {/* Video modal */}
       {selectedVideoId && (
