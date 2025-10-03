@@ -103,7 +103,7 @@ export default function Home() {
       )}
 
       {/* Footer */}
-      <footer className="relative z-20 py-8 px-4 border-t border-neon/20 glass">
+      <footer className="relative z-20 py-8 pb-24 md:pb-8 px-4 border-t border-neon/20 glass">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Left side - Logo/Brand */}
