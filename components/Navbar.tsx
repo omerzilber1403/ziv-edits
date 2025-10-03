@@ -128,19 +128,14 @@ export default function Navbar({ lang, onToggleLang }: NavbarProps) {
                 ))}
               </div>
 
-              {/* Language toggle - desktop only, mobile will be at bottom */}
-              <div className="hidden md:block">
+              {/* Language toggle - always visible */}
+              <div>
                 <LangToggle lang={lang} onToggle={onToggleLang} />
               </div>
             </div>
           </motion.nav>
         )}
       </AnimatePresence>
-
-      {/* Mobile Language Toggle - Fixed at bottom */}
-      <div className="md:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50">
-        <LangToggle lang={lang} onToggle={onToggleLang} />
-      </div>
 
       {/* Scroll to Top Button */}
       <AnimatePresence>
