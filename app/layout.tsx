@@ -6,6 +6,10 @@ export const metadata: Metadata = {
   description: 'Eye-catching vertical reels that drive results. עורך וידאו מומחה ברילז אנכיים למדיה חברתית.',
   keywords: ['video editor', 'social media', 'reels', 'vertical video', 'עורך וידאו', 'רילז'],
   authors: [{ name: 'Z-I-V' }],
+  icons: {
+    icon: '/icon.svg',
+    apple: '/apple-icon.png',
+  },
   openGraph: {
     title: 'Z-I-V — Social Video Editor',
     description: 'Eye-catching vertical reels that drive results.',

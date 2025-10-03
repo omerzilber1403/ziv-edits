@@ -50,8 +50,8 @@ export default function Home() {
     <main className="relative">
       <Navbar lang={lang} onToggleLang={toggleLanguage} />
       
-      {/* Main content */}
-      <div>
+      {/* Scroll snap container */}
+      <div className="snap-container">
         <section id="hero" className="snap-section">
           <Hero lang={lang} />
         </section>
