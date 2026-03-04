@@ -67,29 +67,31 @@ export default function Tools({ lang }: ToolsProps) {
   ];
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 pb-48 md:pb-20 overflow-hidden">
+    <div id="tools" className="relative min-h-screen flex items-center justify-center px-4 py-32 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
-      
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[20%] right-[-5%] w-[350px] h-[350px] rounded-full bg-apple-blue/5 blur-[100px]" />
+      </div>
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-6xl mx-auto"
+        className="relative z-10 max-w-7xl mx-auto w-full"
       >
         {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-12 text-center text-neon neon-text-glow"
+          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-16 text-center text-glass tracking-tight"
         >
           {t.tools.header}
         </motion.h2>
 
-        {/* Tools grid - Cards for desktop, list for mobile */}
-        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Tools grid - Cards for desktop */}
+        <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tools.map((tool, index) => (
             <motion.div
               key={index}
@@ -97,16 +99,16 @@ export default function Tools({ lang }: ToolsProps) {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.8, delay: 0.2 + index * 0.1, ease: 'easeOut' }}
               whileHover={{ y: -5, scale: 1.02 }}
-              className="glass rounded-2xl p-6 hover:border-neon-2/50 transition-all duration-300 group"
+              className="glass-heavy rounded-[2.5rem] p-8 md:p-10 hover:border-white/20 transition-all duration-500 group shadow-2xl"
             >
               <div className="flex flex-col items-center text-center">
-                <div className="w-16 h-16 rounded-full bg-neon-2/20 flex items-center justify-center mb-4 group-hover:bg-neon-2/30 transition-colors">
-                  <tool.icon size={32} className="text-neon-2" />
+                <div className="w-20 h-20 rounded-2xl bg-white/5 flex items-center justify-center mb-6 group-hover:bg-white/10 transition-colors shadow-inner">
+                  <tool.icon size={36} className="text-apple-blue" />
                 </div>
-                <h3 className="text-xl font-bold text-fg mb-2">
+                <h3 className="text-2xl font-bold text-white mb-3 tracking-tight">
                   {lang === 'he' ? tool.nameHe : tool.nameEn}
                 </h3>
-                <p className="text-sm text-fg-muted">
+                <p className="text-lg text-fg-muted leading-relaxed">
                   {lang === 'he' ? tool.descHe : tool.descEn}
                 </p>
               </div>
@@ -115,46 +117,43 @@ export default function Tools({ lang }: ToolsProps) {
         </div>
 
         {/* Mobile: Compact cards */}
-        <div className="md:hidden space-y-3">
+        <div className="md:hidden space-y-4">
           {tools.map((tool, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, x: lang === 'he' ? 20 : -20 }}
               animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: lang === 'he' ? 20 : -20 }}
               transition={{ duration: 0.6, delay: 0.2 + index * 0.08, ease: 'easeOut' }}
-              className="glass rounded-2xl p-4 flex items-center gap-4"
+              className="glass-heavy rounded-3xl p-6 flex items-center gap-6 shadow-xl border border-white/5"
             >
-              <div className="w-12 h-12 rounded-full bg-neon-2/20 flex items-center justify-center flex-shrink-0">
-                <tool.icon size={24} className="text-neon-2" />
+              <div className="w-14 h-14 rounded-2xl bg-white/5 flex items-center justify-center flex-shrink-0 shadow-inner">
+                <tool.icon size={28} className="text-apple-blue" />
               </div>
               <div className="flex-1 text-right" dir={lang === 'he' ? 'rtl' : 'ltr'}>
-                <h3 className="text-base font-bold text-fg">
+                <h3 className="text-xl font-bold text-white tracking-tight">
                   {lang === 'he' ? tool.nameHe : tool.nameEn}
                 </h3>
-                <p className="text-sm text-fg-muted">
+                <p className="text-base text-fg-muted">
                   {lang === 'he' ? tool.descHe : tool.descEn}
                 </p>
               </div>
             </motion.div>
           ))}
         </div>
-
-        {/* Empty spacer for mobile */}
-        <div className="h-32 md:h-0" aria-hidden="true" />
       </motion.div>
 
       {/* Decorative element */}
       <motion.div
         animate={{
           scale: [1, 1.2, 1],
-          opacity: [0.2, 0.4, 0.2],
+          opacity: [0.1, 0.2, 0.1],
         }}
         transition={{
-          duration: 8,
+          duration: 10,
           repeat: Infinity,
           ease: 'easeInOut',
         }}
-        className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-neon-2 blur-3xl pointer-events-none"
+        className="absolute -top-40 -right-20 w-[500px] h-[500px] rounded-full bg-apple-blue blur-[150px] pointer-events-none"
         aria-hidden="true"
       />
     </div>

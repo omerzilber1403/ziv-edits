@@ -17,7 +17,7 @@ export default function Portfolio({ lang, onVideoClick }: PortfolioProps) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: '-100px' });
   const [showAll, setShowAll] = useState(false);
-  
+
   // Show only first 4 videos initially (2 rows on mobile, 1 row on desktop 4 columns)
   const visibleVideos = showAll ? videos : videos.slice(0, 4);
 
@@ -60,7 +60,7 @@ export default function Portfolio({ lang, onVideoClick }: PortfolioProps) {
               whileHover={{ scale: 1.05, y: -5 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => onVideoClick(video.id)}
-              className="group relative aspect-[9/16] overflow-hidden rounded-2xl glass hover:border-neon/50 transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+              className="group relative aspect-[9/16] overflow-hidden rounded-3xl glass glass-hover transition-all duration-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue"
               aria-label={`Play video: ${lang === 'he' ? video.titleHe : video.titleEn}`}
             >
               {/* Thumbnail */}
@@ -69,28 +69,28 @@ export default function Portfolio({ lang, onVideoClick }: PortfolioProps) {
                   src={video.thumb}
                   alt={lang === 'he' ? video.titleHe : video.titleEn}
                   fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
                   loading="lazy"
                   unoptimized
                 />
-                
+
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-bg via-bg/40 to-transparent opacity-80 group-hover:opacity-90 transition-opacity duration-300" />
-                
-                {/* Play button */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+
+                {/* Play button - Apple style circle */}
                 <div className="absolute inset-0 flex items-center justify-center">
                   <motion.div
-                    whileHover={{ scale: 1.2 }}
-                    className="w-16 h-16 rounded-full bg-neon/20 backdrop-blur-sm flex items-center justify-center border-2 border-neon group-hover:bg-neon/30 transition-all duration-300"
+                    whileHover={{ scale: 1.1 }}
+                    className="w-16 h-16 rounded-full glass border border-white/20 flex items-center justify-center group-hover:bg-white/10 transition-all duration-300"
                   >
-                    <Play size={28} className="text-neon" fill="currentColor" />
+                    <Play size={24} className="text-white ml-1" fill="white" />
                   </motion.div>
                 </div>
 
                 {/* Title */}
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h3 className="font-bold text-sm md:text-base text-fg group-hover:text-neon transition-colors duration-300">
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-right">
+                  <h3 className="font-bold text-base md:text-lg text-white filter drop-shadow-lg">
                     {lang === 'he' ? video.titleHe : video.titleEn}
                   </h3>
                 </div>
@@ -99,24 +99,24 @@ export default function Portfolio({ lang, onVideoClick }: PortfolioProps) {
           ))}
         </motion.div>
 
-        {/* Show More Button */}
+        {/* Show More Button - Apple Glass Pill */}
         {!showAll && videos.length > 4 && (
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="mt-12 text-center"
+            className="mt-20 text-center"
           >
             <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={{ scale: 1.02 }}
+              whileTap={{ scale: 0.98 }}
               onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-gradient-to-r from-neon to-neon-2 text-bg font-bold text-lg hover:shadow-xl transition-all duration-300 neon-glow focus:outline-none focus-visible:ring-2 focus-visible:ring-neon focus-visible:ring-offset-2 focus-visible:ring-offset-bg"
+              className="inline-flex items-center gap-3 px-10 py-4 rounded-full glass glass-hover text-white font-semibold text-lg transition-all duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue"
             >
               {lang === 'he' ? 'צפה עוד' : 'Show More'}
               <ChevronDown size={24} />
             </motion.button>
-            
+
             {/* Empty spacer for mobile to give time to see the button */}
             <div className="h-48 md:h-0" aria-hidden="true" />
           </motion.div>

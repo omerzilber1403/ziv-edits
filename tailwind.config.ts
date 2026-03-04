@@ -11,10 +11,15 @@ const config: Config = {
       colors: {
         bg: 'var(--bg)',
         'bg-glass': 'var(--bg-glass)',
+        'bg-glass-heavy': 'var(--bg-glass-heavy)',
         fg: 'var(--fg)',
         'fg-muted': 'var(--fg-muted)',
-        neon: 'var(--neon)',
-        'neon-2': 'var(--neon-2)',
+        apple: {
+          blue: '#007AFF',
+          gray: '#8E8E93',
+          light: '#F5f5f7',
+          dark: '#1d1d1f',
+        },
       },
       fontFamily: {
         display: ['var(--font-display)'],
@@ -23,6 +28,8 @@ const config: Config = {
       animation: {
         'glow-pulse': 'glow-pulse 2s ease-in-out infinite',
         'float': 'float 6s ease-in-out infinite',
+        'mesh': 'mesh 15s ease-in-out infinite',
+        'glass-shimmer': 'glass-shimmer 3s infinite linear',
       },
       keyframes: {
         'glow-pulse': {
@@ -33,6 +40,17 @@ const config: Config = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
         },
+        'mesh': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+        'glass-shimmer': {
+          '0%': { backgroundPosition: '-200% 0' },
+          '100%': { backgroundPosition: '200% 0' },
+        },
+      },
+      backdropBlur: {
+        'xs': '2px',
       },
     },
   },

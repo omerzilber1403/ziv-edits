@@ -49,5 +49,17 @@ export const videos: Video[] = [
     titleEn: 'Elephent Exploration',
     thumb: 'https://drive.google.com/thumbnail?id=1rQSsrLRoZm9DNPaZcQBDEcnEeVQA7FVw&sz=w400',
   },
+  {
+    id: '1bn5RI_J6eGwbvf3O14jSLXHzOxTay3kI',
+    titleHe: 'סרטון חדש 1',
+    titleEn: 'New Video 1',
+    thumb: 'https://drive.google.com/thumbnail?id=1bn5RI_J6eGwbvf3O14jSLXHzOxTay3kI&sz=w400',
+  },
+  {
+    id: '1XlOcXWDkK1lSubMzbv4tIJa1Iw93vwet',
+    titleHe: 'סרטון חדש 2',
+    titleEn: 'New Video 2',
+    thumb: 'https://drive.google.com/thumbnail?id=1XlOcXWDkK1lSubMzbv4tIJa1Iw93vwet&sz=w400',
+  },
 ];
 

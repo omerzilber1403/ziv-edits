@@ -41,7 +41,7 @@ export default function Navbar({ lang, onToggleLang }: NavbarProps) {
     // Scroll handler - hide navbar on scroll down, show on scroll up
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
-      
+
       if (currentScrollY < 100) {
         setIsVisible(true);
         setShowScrollTop(false);
@@ -54,7 +54,7 @@ export default function Navbar({ lang, onToggleLang }: NavbarProps) {
         setIsVisible(true);
         setShowScrollTop(false);
       }
-      
+
       setLastScrollY(currentScrollY);
     };
 
@@ -90,37 +90,36 @@ export default function Navbar({ lang, onToggleLang }: NavbarProps) {
             initial={{ y: -100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: -100, opacity: 0 }}
-            transition={{ duration: 0.3, ease: 'easeInOut' }}
-            className="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-8"
+            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+            className="fixed top-6 left-0 right-0 z-50 px-4 md:px-8"
           >
-            <div className="max-w-7xl mx-auto glass rounded-2xl px-4 md:px-6 py-3 flex items-center justify-between">
-              {/* Logo - hidden on mobile */}
+            <div className="max-w-3xl mx-auto glass rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
+              {/* Logo */}
               <button
                 onClick={() => scrollToSection('hero')}
-                className="hidden md:block text-2xl md:text-3xl font-display font-bold neon-text-glow tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-neon rounded-lg px-2"
+                className="text-xl md:text-2xl font-display font-bold text-white tracking-tight focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue rounded-full px-3 py-1"
                 aria-label="Z-I-V Home"
               >
                 Z-I-V
               </button>
 
-              {/* Nav links - responsive spacing */}
-              <div className="flex items-center gap-3 md:gap-8 flex-1 md:flex-initial justify-center md:justify-start">
+              {/* Nav links */}
+              <div className="hidden md:flex items-center gap-8">
                 {navItems.map((item) => (
                   <button
                     key={item.id}
                     onClick={() => scrollToSection(item.id)}
-                    className={`relative text-xs md:text-base font-medium transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-neon rounded px-2 py-1 whitespace-nowrap ${
-                      activeSection === item.id
-                        ? 'text-neon'
-                        : 'text-fg-muted hover:text-fg'
-                    }`}
+                    className={`relative text-sm font-medium transition-colors duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue rounded px-2 py-1 ${activeSection === item.id
+                        ? 'text-white'
+                        : 'text-fg-muted hover:text-white'
+                      }`}
                     aria-label={`Navigate to ${item.label}`}
                   >
                     {item.label}
                     {activeSection === item.id && (
                       <motion.span
                         layoutId="activeSection"
-                        className="absolute bottom-0 left-0 right-0 h-0.5 bg-neon neon-glow"
+                        className="absolute -bottom-1 left-0 right-0 h-0.5 bg-apple-blue"
                         transition={{ type: 'spring', stiffness: 380, damping: 30 }}
                       />
                     )}
@@ -128,8 +127,18 @@ export default function Navbar({ lang, onToggleLang }: NavbarProps) {
                 ))}
               </div>
 
-              {/* Language toggle - always visible */}
-              <div>
+              {/* Mobile Indicators or Language toggle */}
+              <div className="flex items-center gap-4">
+                <div className="md:hidden flex gap-3">
+                  {navItems.map((item) => (
+                    <button
+                      key={item.id}
+                      onClick={() => scrollToSection(item.id)}
+                      className={`w-2 h-2 rounded-full transition-all duration-300 ${activeSection === item.id ? 'bg-apple-blue w-4' : 'bg-fg-muted/30'
+                        }`}
+                    />
+                  ))}
+                </div>
                 <LangToggle lang={lang} onToggle={onToggleLang} />
               </div>
             </div>
@@ -144,12 +153,12 @@ export default function Navbar({ lang, onToggleLang }: NavbarProps) {
             initial={{ scale: 0, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3, ease: 'easeOut' }}
             onClick={scrollToTop}
-            className="fixed top-6 right-6 z-50 w-12 h-12 rounded-full glass neon-glow flex items-center justify-center hover:bg-neon/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+            className="fixed bottom-10 right-10 z-50 w-14 h-14 rounded-full glass glass-hover flex items-center justify-center shadow-xl focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue"
             aria-label="Scroll to top"
           >
-            <ChevronUp size={24} className="text-neon" />
+            <ChevronUp size={28} className="text-white" />
           </motion.button>
         )}
       </AnimatePresence>

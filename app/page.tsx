@@ -49,7 +49,7 @@ export default function Home() {
   return (
     <main className="relative">
       <Navbar lang={lang} onToggleLang={toggleLanguage} />
-      
+
       {/* Scroll snap container */}
       <div className="snap-container">
         <section id="hero" className="snap-section">
@@ -93,49 +93,54 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="relative z-20 py-8 pb-24 md:pb-8 px-4 border-t border-neon/20 glass">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            {/* Left side - Logo/Brand */}
-            <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-neon to-neon-2 flex items-center justify-center neon-glow">
-                <span className="text-bg font-bold text-xl">Z</span>
-              </div>
-              <div>
-                <div className="text-lg font-bold text-neon">Z-I-V</div>
-                <div className="text-xs text-fg-muted">{lang === 'he' ? 'עורך וידאו מקצועי' : 'Professional Video Editor'}</div>
-              </div>
-            </div>
+        <footer className="relative z-20 py-12 pb-32 md:pb-12 px-6 border-t border-white/10 glass-heavy">
+          <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+            <div className="absolute top-0 left-[-5%] w-32 h-32 rounded-full bg-apple-blue/10 blur-3xl" />
+            <div className="absolute bottom-0 right-[-5%] w-40 h-40 rounded-full bg-purple-500/10 blur-3xl" />
+          </div>
 
-            {/* Center - Built by */}
-            <div className="flex items-center gap-2 text-fg-muted">
-              <span className="text-sm">{lang === 'he' ? 'נבנה על ידי' : 'Built by'}</span>
-              <a
-                href="https://zilber.solutions"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-neon-2/20 to-neon/20 border border-neon/30 hover:border-neon-2 transition-all duration-300 group"
-              >
-                <svg className="w-5 h-5 text-neon-2 group-hover:rotate-12 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                </svg>
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-neon-2 to-neon">
-                  Zilber Solutions
+          <div className="max-w-7xl mx-auto relative z-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              {/* Left side - Logo/Brand */}
+              <div className="flex items-center gap-4">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-apple-blue to-purple-600 flex items-center justify-center shadow-xl">
+                  <span className="text-white font-bold text-2xl">Z</span>
+                </div>
+                <div>
+                  <div className="text-xl font-bold text-white tracking-tight">Z-I-V</div>
+                  <div className="text-sm text-fg-muted">
+                    {lang === 'he' ? 'עורך וידאו מקצועי' : 'Professional Video Editor'}
+                  </div>
+                </div>
+              </div>
+
+              {/* Center - Built by */}
+              <div className="flex flex-col items-center gap-3">
+                <span className="text-xs text-fg-muted font-medium uppercase tracking-widest">
+                  {lang === 'he' ? 'נבנה על ידי' : 'Built by'}
                 </span>
-              </a>
-            </div>
+                <a
+                  href="https://zilber.solutions"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-3 px-6 py-3 rounded-full glass glass-hover border border-white/10 hover:border-white/20 transition-all duration-500 group"
+                >
+                  <svg className="w-5 h-5 text-apple-blue group-hover:scale-110 transition-transform" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                  <span className="font-bold text-lg text-white">
+                    Zilber Solutions
+                  </span>
+                </a>
+              </div>
 
-            {/* Right side - Copyright */}
-            <div className="text-sm text-fg-muted">
-              © 2025 Z-I-V
+              {/* Right side - Copyright */}
+              <div className="text-sm text-fg-muted font-medium">
+                © 2025 Z-I-V • All Rights Reserved
+              </div>
             </div>
           </div>
-        </div>
-
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-10 w-32 h-32 rounded-full bg-neon/10 blur-3xl pointer-events-none" aria-hidden="true" />
-        <div className="absolute bottom-0 right-10 w-32 h-32 rounded-full bg-neon-2/10 blur-3xl pointer-events-none" aria-hidden="true" />
-      </footer>
+        </footer>
       </div>
 
       {/* Video modal */}

@@ -14,23 +14,25 @@ export default function Process({ lang }: ProcessProps) {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-12 overflow-hidden">
+    <div id="process" className="relative min-h-screen flex items-center justify-center px-4 py-32 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
-      
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute bottom-[20%] left-[-5%] w-[300px] h-[300px] rounded-full bg-apple-blue/10 blur-[90px]" />
+      </div>
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-4xl mx-auto"
+        className="relative z-10 max-w-5xl mx-auto w-full"
       >
         {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 text-neon neon-text-glow text-center"
+          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-12 text-glass tracking-tight text-center"
         >
           {t.process.header}
         </motion.h2>
@@ -40,9 +42,9 @@ export default function Process({ lang }: ProcessProps) {
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="glass rounded-3xl p-8 md:p-12"
+          className="glass-heavy rounded-[2.5rem] p-10 md:p-16 shadow-2xl"
         >
-          <p className="text-lg md:text-xl lg:text-2xl leading-relaxed text-fg">
+          <p className="text-xl md:text-2xl lg:text-3xl leading-relaxed text-white text-center">
             {t.process.body}
           </p>
         </motion.div>
@@ -50,15 +52,15 @@ export default function Process({ lang }: ProcessProps) {
         {/* Decorative elements */}
         <motion.div
           animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
+            y: [0, -30, 0],
+            rotate: [0, 8, 0],
           }}
           transition={{
-            duration: 6,
+            duration: 8,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -bottom-10 -left-10 w-32 h-32 rounded-full bg-neon blur-3xl opacity-20 pointer-events-none"
+          className="absolute -bottom-20 -left-10 w-48 h-48 rounded-full bg-apple-blue blur-[100px] opacity-20 pointer-events-none"
           aria-hidden="true"
         />
       </motion.div>

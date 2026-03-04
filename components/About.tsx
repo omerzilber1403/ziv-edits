@@ -14,37 +14,42 @@ export default function About({ lang }: AboutProps) {
   const isInView = useInView(ref, { once: true, margin: '-50px', amount: 0.2 });
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center px-4 py-20 pb-40 md:pb-20 overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
-      
+    <div id="about" className="relative min-h-screen flex items-center justify-center px-4 py-32 overflow-hidden">
+      {/* Background orbs */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[20%] right-[-10%] w-[400px] h-[400px] rounded-full bg-apple-blue/10 blur-[100px]" />
+        <div className="absolute bottom-[20%] left-[-10%] w-[300px] h-[300px] rounded-full bg-purple-500/10 blur-[80px]" />
+      </div>
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-3xl mx-auto"
+        className="relative z-10 max-w-5xl mx-auto w-full"
       >
         {/* Header */}
-        <motion.h2
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8, delay: 0.1, ease: 'easeOut' }}
-          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-8 text-neon neon-text-glow"
+          className="text-center mb-16"
         >
-          {t.about.header}
-        </motion.h2>
+          <h2 className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-8 text-glass tracking-tight">
+            {t.about.header}
+          </h2>
+        </motion.div>
 
-        {/* Body text - Two sections for mobile */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        {/* Body text - Two sections */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* First section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
-            className="glass rounded-3xl p-6 md:p-10"
+            className="glass-heavy rounded-[2.5rem] p-8 md:p-12 shadow-2xl"
           >
-            <div className="text-base md:text-lg lg:text-xl leading-relaxed text-fg space-y-4">
+            <div className="text-lg md:text-xl lg:text-2xl leading-relaxed text-white space-y-6">
               {t.about.body.split('\n\n').slice(0, 2).map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -56,9 +61,9 @@ export default function About({ lang }: AboutProps) {
             initial={{ opacity: 0, y: 20 }}
             animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.8, delay: 0.3, ease: 'easeOut' }}
-            className="glass rounded-3xl p-6 md:p-10"
+            className="glass-heavy rounded-[2.5rem] p-8 md:p-12 shadow-2xl"
           >
-            <div className="text-base md:text-lg lg:text-xl leading-relaxed text-fg space-y-4">
+            <div className="text-lg md:text-xl lg:text-2xl leading-relaxed text-white space-y-6">
               {t.about.body.split('\n\n').slice(2).map((paragraph, index) => (
                 <p key={index}>{paragraph}</p>
               ))}
@@ -66,27 +71,26 @@ export default function About({ lang }: AboutProps) {
           </motion.div>
         </div>
 
-        {/* Decorative line */}
+        {/* Decorative element - Apple style subtle line */}
         <motion.div
           initial={{ scaleX: 0 }}
           animate={isInView ? { scaleX: 1 } : { scaleX: 0 }}
-          transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-8 h-1 bg-gradient-to-r from-neon to-neon-2 rounded-full"
-          style={{ transformOrigin: lang === 'he' ? 'right' : 'left' }}
+          transition={{ duration: 1.2, delay: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mt-12 h-[1px] bg-gradient-to-r from-transparent via-white/20 to-transparent w-full"
         />
 
-        {/* Floating accent */}
+        {/* Floating accent orb */}
         <motion.div
           animate={{
-            y: [0, -20, 0],
-            rotate: [0, 5, 0],
+            y: [0, -30, 0],
+            x: [0, 20, 0],
           }}
           transition={{
-            duration: 6,
+            duration: 10,
             repeat: Infinity,
             ease: 'easeInOut',
           }}
-          className="absolute -top-10 -right-10 w-32 h-32 rounded-full bg-neon-2 blur-3xl opacity-20 pointer-events-none"
+          className="absolute -top-20 -right-20 w-64 h-64 rounded-full bg-apple-blue blur-[120px] opacity-20 pointer-events-none"
           aria-hidden="true"
         />
       </motion.div>

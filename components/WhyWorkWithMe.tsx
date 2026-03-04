@@ -20,29 +20,31 @@ export default function WhyWorkWithMe({ lang }: WhyWorkWithMeProps) {
   ];
 
   return (
-    <div className="relative min-h-[100vh] flex items-center justify-center px-4 py-20 pb-40 md:pb-20 overflow-hidden">
+    <div id="why-work-with-me" className="relative min-h-[100vh] flex items-center justify-center px-4 py-32 overflow-hidden">
       {/* Background decoration */}
-      <div className="absolute inset-0 grid-bg opacity-30" aria-hidden="true" />
-      
+      <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">
+        <div className="absolute top-[30%] left-[-10%] w-[350px] h-[350px] rounded-full bg-apple-blue/10 blur-[100px]" />
+      </div>
+
       <motion.div
         ref={ref}
         initial={{ opacity: 0 }}
         animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative z-10 max-w-4xl mx-auto"
+        className="relative z-10 max-w-5xl mx-auto w-full"
       >
         {/* Header */}
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-display font-bold mb-12 text-center text-neon neon-text-glow"
+          className="text-4xl md:text-6xl lg:text-7xl font-display font-bold mb-16 text-center text-glass tracking-tight"
         >
           {t.whyWorkWithMe.header}
         </motion.h2>
 
         {/* Reasons grid */}
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-3 gap-8">
           {reasons.map((reason, index) => (
             <motion.div
               key={index}
@@ -50,9 +52,9 @@ export default function WhyWorkWithMe({ lang }: WhyWorkWithMeProps) {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
               whileHover={{ y: -10, scale: 1.02 }}
-              className="glass rounded-2xl p-6 md:p-8 text-center hover:border-neon/50 transition-all duration-300"
+              className="glass-heavy rounded-[2.5rem] p-8 md:p-10 text-center hover:border-white/20 transition-all duration-500 shadow-xl"
             >
-              <p className="text-lg md:text-xl leading-relaxed text-fg">
+              <p className="text-xl md:text-2xl leading-relaxed text-white">
                 {reason.text}
               </p>
             </motion.div>

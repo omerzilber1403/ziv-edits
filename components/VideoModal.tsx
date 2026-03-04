@@ -63,8 +63,8 @@ export default function VideoModal({ videoId, lang, onClose }: VideoModalProps) 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-bg/95 backdrop-blur-md"
+        transition={{ duration: 0.3 }}
+        className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-2xl"
         onClick={onClose}
         role="dialog"
         aria-modal="true"
@@ -72,38 +72,38 @@ export default function VideoModal({ videoId, lang, onClose }: VideoModalProps) 
       >
         <motion.div
           ref={modalRef}
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          exit={{ scale: 0.9, opacity: 0 }}
-          transition={{ duration: 0.3, ease: 'easeOut' }}
+          initial={{ scale: 0.95, opacity: 0, y: 20 }}
+          animate={{ scale: 1, opacity: 1, y: 0 }}
+          exit={{ scale: 0.95, opacity: 0, y: 20 }}
+          transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
           onClick={(e) => e.stopPropagation()}
-          className="relative w-full max-w-4xl bg-bg-glass glass rounded-3xl overflow-hidden neon-glow"
+          className="relative w-full max-w-5xl glass-heavy rounded-[2.5rem] overflow-hidden shadow-[0_0_100px_rgba(0,0,0,0.5)] border border-white/10"
         >
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b border-neon/20">
+          <div className="flex items-center justify-between p-6 border-b border-white/10">
             <a
               href={driveViewUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center gap-2 text-sm text-neon hover:text-neon-2 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neon rounded px-2 py-1"
+              className="flex items-center gap-2 text-sm text-white/70 hover:text-white transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue rounded px-3 py-1 bg-white/5 hover:bg-white/10 rounded-full"
               aria-label={t.modal.openDrive}
             >
-              <ExternalLink size={16} />
+              <ExternalLink size={18} />
               <span>{t.modal.openDrive}</span>
             </a>
 
             <button
               ref={closeButtonRef}
               onClick={onClose}
-              className="p-2 rounded-full hover:bg-neon/20 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-neon"
+              className="p-3 rounded-full glass-hover transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-apple-blue"
               aria-label={t.modal.close}
             >
-              <X size={24} className="text-fg" />
+              <X size={28} className="text-white" />
             </button>
           </div>
 
           {/* Video iframe */}
-          <div className="relative w-full" style={{ paddingBottom: '56.25%' }}>
+          <div className="relative w-full aspect-video">
             <iframe
               src={driveEmbedUrl}
               className="absolute inset-0 w-full h-full"
@@ -114,8 +114,8 @@ export default function VideoModal({ videoId, lang, onClose }: VideoModalProps) 
           </div>
 
           {/* Loading fallback */}
-          <div className="absolute inset-0 flex items-center justify-center bg-bg pointer-events-none opacity-0 transition-opacity">
-            <div className="w-16 h-16 border-4 border-neon/30 border-t-neon rounded-full animate-spin" />
+          <div className="absolute inset-0 flex items-center justify-center bg-black/40 pointer-events-none opacity-0 transition-opacity">
+            <div className="w-16 h-16 border-4 border-white/10 border-t-white rounded-full animate-spin" />
           </div>
         </motion.div>
       </motion.div>
