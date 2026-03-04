@@ -138,8 +138,6 @@ export default function Contact({ lang }: ContactProps) {
         />
       </motion.div>
     </div>
-      </motion.div >
-    </div >
   );
 }
 
