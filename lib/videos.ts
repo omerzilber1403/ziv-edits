@@ -20,28 +20,22 @@ export const videos: Video[] = [
     thumb: 'https://drive.google.com/thumbnail?id=1jCFxxPNr8BO9jEeCvebRQ6Mb5-Jdfs1g&sz=w400',
   },
   {
-    id: '1JpzlCfbXuZIe6rbMaT6BRlxQj0HcXZGk',
-    titleHe: 'Agent One',
-    titleEn: 'Agent One',
-    thumb: 'https://drive.google.com/thumbnail?id=1JpzlCfbXuZIe6rbMaT6BRlxQj0HcXZGk&sz=w400',
-  },
-  {
-    id: '1WNZNQ9lHIeBXDDFegaW3D0zpmt4ZgMDe',
-    titleHe: 'VSL יובל',
-    titleEn: 'Yuval VSL',
-    thumb: 'https://drive.google.com/thumbnail?id=1WNZNQ9lHIeBXDDFegaW3D0zpmt4ZgMDe&sz=w400',
-  },
-  {
     id: '1yKCabuQCAGUJNzCWkDKyxD2j03MgdNIP',
     titleHe: 'עלית קפה טורקי — שיתוף פעולה',
     titleEn: 'Elite Turkish Coffee — Collaboration',
     thumb: 'https://drive.google.com/thumbnail?id=1yKCabuQCAGUJNzCWkDKyxD2j03MgdNIP&sz=w400',
   },
   {
-    id: '1bfLVzbyM0Eof7dxC2xHN-XzJwGzhoNhk',
-    titleHe: 'ממדים לריבועים — VSL חברה בע״מ',
-    titleEn: 'Dimensions to Squares — Corporate VSL',
-    thumb: 'https://drive.google.com/thumbnail?id=1bfLVzbyM0Eof7dxC2xHN-XzJwGzhoNhk&sz=w400',
+    id: '1NgI_KaOM5O_jKlSEdgvFMZNajjY9tAxJ',
+    titleHe: 'אופק זרמטי פודקאסט',
+    titleEn: 'Ofek Zarmati Podcast',
+    thumb: 'https://drive.google.com/thumbnail?id=1NgI_KaOM5O_jKlSEdgvFMZNajjY9tAxJ&sz=w400',
+  },
+  {
+    id: '18-q_DcGXNRlOyYjLSCCrnfnhaw74kSxk',
+    titleHe: 'אפליקציית נדל״ן',
+    titleEn: 'Real Estate App',
+    thumb: 'https://drive.google.com/thumbnail?id=18-q_DcGXNRlOyYjLSCCrnfnhaw74kSxk&sz=w400',
   },
   {
     id: '1rQSsrLRoZm9DNPaZcQBDEcnEeVQA7FVw',
